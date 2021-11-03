@@ -2,7 +2,6 @@
 % 
 % Variables:
 % T - temperature of the earth
-% R - Radius of earth
 % S - energy flux density
 % sigma - Stefan-Boltzmann constant
 % alpha - albedo (percentage of incoming energy that is reflected back out)
@@ -23,9 +22,18 @@ for T = 150:300
     energyOut(T-149) = epsilon * sigma * T^4;
 end
 
-clf; hold on; grid on;
+clf; figure; hold on; grid on;
 plot(150:300, energyIn)
 plot(150:300, energyOut)
 xlabel('Temperature (K)')
 ylabel('Energy (W/m^2)')
 legend("Energy in", "Energy Out")
+
+figure; hold on; grid on;
+plot(284:290, energyIn(134:140))
+plot(284:290, energyOut(134:140))
+xlabel('Temperature (K)')
+ylabel('Energy (W/m^2)')
+legend("Energy in", "Energy Out")
+
+
