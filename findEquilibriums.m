@@ -15,17 +15,17 @@ sigma = 5.67e-8;
 Q = S/4;
 energyIn = NaN(1, 100);
 energyOut = NaN(1, 100);
+epsilon = findGreenhouseEffect(288);
 
-for T = 200:300
+for T = 150:300
     alpha = findAlbedo(T);
-    epsilon = findGreenhouseEffect(288);
-    energyIn(T-199) = Q*(1 - alpha);
-    energyOut(T-199) = epsilon * sigma * T^4;
+    energyIn(T-149) = Q*(1 - alpha);
+    energyOut(T-149) = epsilon * sigma * T^4;
 end
 
 clf; hold on; grid on;
-plot(200:300, energyIn)
-plot(200:300, energyOut)
+plot(150:300, energyIn)
+plot(150:300, energyOut)
 xlabel('Temperature (K)')
 ylabel('Energy (W/m^2)')
-l
+legend("Energy in", "Energy Out")
